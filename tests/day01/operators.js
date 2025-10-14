@@ -1,0 +1,7 @@
+console.log(6+14)
+console.log(6<5)
+console.log(6>=9)
+console.log(5==4 && 7<8)
+console.log(5==4 || 7<8)
+console.log(10%2)
+console.log(10/2)
