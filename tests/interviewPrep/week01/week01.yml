@@ -1,0 +1,127 @@
+------------------------------------------------------
+1️⃣ How does trim() improve reliability in form input automation?
+------------------------------------------------------
+Answer:
+trim() helps remove unwanted white spaces from the beginning and end of a string.
+In form input automation, sometimes users enter " test" or "test " instead of "test".
+If we compare raw inputs without trimming, our validations might fail.
+By using trim(), we make the comparison reliable and consistent.
+
+Example:
+const text = " test ";
+if (text.trim() === "test") {
+  console.log("Input validated successfully ");
+}
+
+------------------------------------------------------
+2️⃣ When would you use replaceAll() in test automation?
+------------------------------------------------------
+Answer:
+replaceAll() is used when we need to remove or replace all occurrences of a specific substring or pattern in a string.
+
+Example:
+let apiResponse = "post-13 post-1 post-5";
+let ids = apiResponse.replaceAll("post-", "");
+console.log(ids);  // "13 1 5"
+
+let idArray = ids.split(" ");
+console.log(idArray);  // ["13", "1", "5"]
+
+------------------------------------------------------
+3️⃣ Difference between == and === in JavaScript
+------------------------------------------------------
+==  -> Loose equality: compares values and performs type coercion if needed.
+=== -> Strict equality: compares both value and data type.
+
+Example:
+console.log("5" == 5);   // true
+console.log("5" === 5);  // false
+
+------------------------------------------------------
+4️⃣ Difference between var, let, and const
+------------------------------------------------------
+| Keyword | Redeclaration | Reassignment | Scope Type |
+|----------|----------------|----------------|--------------|
+| var   | ✅ Allowed | ✅ Allowed | Function Scoped |
+| let   | ❌ Not Allowed | ✅ Allowed | Block Scoped |
+| const | ❌ Not Allowed | ❌ Not Allowed | Block Scoped |
+
+------------------------------------------------------
+5️⃣ Difference between null and undefined
+------------------------------------------------------
+undefined -> Variable is declared but not assigned.
+null -> Variable is explicitly assigned to represent no value.
+
+Example:
+let a;
+console.log(a); // undefined
+
+let b = null;
+console.log(b); // null
+
+------------------------------------------------------
+6️⃣ Check if a string is a palindrome
+------------------------------------------------------
+let str = "madam";
+let reversed = str.split("").reverse().join("");
+if (str === reversed) {
+  console.log("It's a palindrome ");
+} else {
+  console.log("Not a palindrome");
+}
+
+------------------------------------------------------
+7️⃣ Find the most frequent character in a string
+------------------------------------------------------
+let str = "successaaaa";
+
+let maxChar = "";
+let maxCount = 0;
+
+for (let i=0;i<str.length;i++) {
+  let charcount = str.split(str.charAt(i)).length - 1;
+  
+  console.log(str.split(str.charAt(i)));
+  
+  console.log(count);
+  
+  if (charcount > maxCount) 
+  {     
+    maxCount = count;
+        
+  }
+  console.log(maxCount);
+  
+}
+
+console.log(`Most frequent character: ' (${maxCount} times)`);
+ 
+------------------------------------------------------
+8️⃣ Count the number of vowels in a string
+------------------------------------------------------
+let vowels="aeiou"
+
+let empName="udai"
+
+let count=0;
+for(let i=0;i<empName.length;i++)
+{
+
+    if(vowels.includes(empName.charAt(i)))
+    {
+        count++;
+    }
+}
+
+console.log(count);
+------------------------------------------------------
+9️⃣ Extract login and opentaps from the URL
+------------------------------------------------------
+URL: http://leaftaps.com/opentaps/control/login
+
+let url = "http://leaftaps.com/opentaps/control/login";
+let parts = url.split("/");
+console.log(parts[3]); // opentaps
+console.log(parts[5]); // login
+
+------------------------------------------------------

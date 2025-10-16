@@ -34,8 +34,8 @@ let price="35000"
 let num=parseInt(price)
 console.log(`${typeof(num)} value is ${num}`)
 
-// Strict equality (===) -> value & location is compared
-// loose equality (==) -> only value is compared
+// Strict equality (===) -> will do type coercing (that is type conversion) and then  values are compared
+// loose equality (==) -> only value is compared without type conversion
 
 // let comName="TestLeaf" //205
 // let com="TestLeaf"     //205
@@ -45,3 +45,11 @@ console.log(`${typeof(num)} value is ${num}`)
 console.log(comName===com)
 
 console.log(br==browserName) //compare only the value
+
+console.log('5'=== 5)
+
+let v =null
+console.log(typeof(v))
+
+let va
+console.log(typeof(va))
