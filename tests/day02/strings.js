@@ -53,3 +53,9 @@ console.log(typeof(v))
 
 let va
 console.log(typeof(va))
+
+let strings='hello world'
+let substring ='kitty'
+let index = strings.indexOf(substring)
+console.log(index)
+//let strings =09

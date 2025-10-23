@@ -22,32 +22,49 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html',{open:'always'}]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
+ /// give headless mode here 
+    headless: false,
+    video: 'on',
+    screenshot: 'on',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    //trace: 'on-first-retry',
+    trace: 'on',
+
+   
   },
 
   /* Configure projects for major browsers */
+  //if you want we can comment or uncomment these browsers based on the usage
+  // for now i am commenting firefox and webkit browser
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+      //use: { ...devices['Desktop Chrome'] },
+      
+      //to maximize the window use the blow code 
+      use: { channel:'chrome'
+      ,
+       viewport:null,
+      launchOptions:{
+         args: 
+      ['--start-maximized'],}
+    } },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {

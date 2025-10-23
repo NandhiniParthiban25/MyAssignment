@@ -1,0 +1,64 @@
+Agenda
+
+-> String
+-> Function
+-> Break
+-> Playwright Introduction
+-> Browser Launch
+-> Breakout
+
+
+Function
+1.Named Function or Regular Function
+2.Arrow Function
+3.Call-Back Function
+
+Named Fucntion
+A function is a reusable block of code
+
+Declarationecalration
+function functionName(varibale:type){
+}
+
+example
+function session(name:string){
+console.log(name)
+}
+
+//call the function
+console.log(session('Playwright'))
+
+Arrow function
+was introduced in 2015 -> ES6
+
+Declaration
+const/let functionName=(arguments)=> code to execute
+
+
+call-Back function
+call one function to another function 
+args-> callback -> userdefined (callback is not a keyword , user can define anything they wanted)
+
+Example 
+function a(name,callback){
+console.log(name)
+callback(27)
+}
+function b(age){
+console.log(age)
+}
+a('Nandhini',b)
+
+callbackhell
+calling one function to another to another
+it makes code complex and printing the value becomes undefined
+to over come this we use concept call -> Promise 
+
+Promise 
+-> resolve() -> when task succeeds
+-> reject() -> when task fails
+
+-> .then() -> handel succeeds
+-> .catch() -> handles error
+
+instead of promise we shall use async/await
