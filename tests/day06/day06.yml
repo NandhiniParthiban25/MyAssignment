@@ -1,0 +1,58 @@
+Agenda:
+-> Xpath (continue)
+-> Playwright Locators
+-> Break
+-> Breakout
+-> Assertions
+-> Type Script
+
+
+
+Note: 
+to run/execute a js file 
+--> node node filename.js
+
+to run/execute a spec file 
+--> npx playwright test filename.spec.ts
+
+to debug a spec file 
+--> npx playwright test filename.spec.ts --debug
+
+to execute a ts file (only if typescript is installed globally)
+--> tsc filename.ts
+then --> node filename.js
+
+to execute a ts file (only if typescript (ts-node) is installed globally)
+--> ts-node filename.ts
+
+Playwright Locators:
+ 
+-> getByRole - text,button,checkbox,link,radio,heading
+-> getByLabel
+-> getByText
+-> getByPlaceholder
+-> getByAltText - img
+-> getByDataTestId
+
+
+Playwright Assertions:
+Types:
+1. Auto Retry -> will retry if the element is not found
+2. Non-Retry -> will not retry if the element is not found
+3. soft -> will execute the rest of the code if error occurs
+4. hard -> will not execute the rest of the code if error occurs, it will terminae the code
+
+Note: By default time for assertion is 5 seconds
+
+Assertions types:
+Generic Type - toEqual, toHaveTitle
+Locator Type - toBeEnabled
+page Type - toHaveURL
+API Assertions
+Negating Assertions
+expect().not
+
+Refer: https://playwright.dev/docs/test-assertions
+
+Note: if we are adding extra time to the asserting it is called actionability timeout
+syntax: await expect(page.locator("")).toBeEnabled({timeout:10000})
