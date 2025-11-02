@@ -1,0 +1,70 @@
+✅ Q1. What happens if you use selectOption() on a custom dropdown built with <div> instead of <select>?
+     
+
+ USING THE SELECT OPTION IN A NON SELECT DROPDOWN WILL THROWS A  ERROR ..
+
+
+✅ Q2. How do you select a dropdown option that becomes visible only after hovering over another element?
+
+   await page.locator(`//a[@data-group="men"]`).hover();
+   await page.locator(`span[text()="shirt"`).click();
+
+
+✅ Q3. How do you select multiple options from a <select multiple> dropdown using Playwright?
+
+    await page.selectOption("#multiple-select",[{value:"python"},{value:"javascript"}])
+
+
+✅ Q4. How do you verify the selected option from a dropdown?
+
+   const text=await page.locator("#standard-select").inputValue();
+   expect(text).toContains("Germany");
+
+
+✅ Q5. How will you select a dropdown option that is hidden behind a scrollable container?
+    const option=await page.locator("//span[text()='Java']")
+    option.scrollIntoViewIfNeeded();
+    option.click();
+
+✅ Q6. What’s the difference between using .click() on an option vs selectOption() in Playwright?
+
+    
+
+✅ Q7. Write XPath to locate a button which has both id and name.
+
+
+there i two username ==user,admin
+<input id="username"  name="admin" class="inputLogin">
+<input id="username"  name="user"  class ="inputLogin">
+       //tagname[@id="username"]==>showing two matches
+
+   //input[@id="username" and @name="user"]====> this will give 1 of 1 match
+
+
+✅ Q8. How do you locate sibling elements using XPath and CSS?
+
+   //tagname[@attributeName="attribute Value"]/following-sibling::tagname of the sibling
+
+   tagname of the current node + tagnmae of the sibling
+
+
+✅ Q9. How do you write XPath to locate an element with an attribute that starts with a specific string?
+<input id="username"  name="user"  class ="inputLogin">
+
+   
+   //tagname[startsWith(@attribute,"value")]
+
+✅ Q10. How do you perform soft assertions in Playwright?
+
+await expect(page.locator("#username")).toBeVisible();==hard assertion (stop the flow if assertion fails)
+await expect.soft(page.locator("#username")).toBeVisible();==soft assertion (doesn't stop the flow even if the assertion fails)
+
+✅ Q11. How do you assert page title and URL?
+
+await expect(page).toHaveTitle("Login")
+await expect(page).toHaveUrl("https://www.salesforce.com/")
+
+✅ Q12. How to add a timeout for a specific assertion?
+
+await expect(page.locator('#userName')).toBeVisible({timeout:10000});
+
