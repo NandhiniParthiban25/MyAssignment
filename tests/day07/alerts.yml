@@ -1,0 +1,18 @@
+Alerts
+Types
+1. Modal Alert 
+  => Simple alert 
+  => confirmation alert
+  => Prompt alert
+2. Non - Modal Alert
+  => Sweet Alert
+
+
+
+  => dialog.accept()
+  => dialog.dismiss()
+  => dialog.message()
+  => dialog.accept('Your text')
+  => dialog.type()
+
+  page.once => one of the event listener that  handles only 1st alert 
