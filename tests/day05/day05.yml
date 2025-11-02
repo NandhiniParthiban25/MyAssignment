@@ -1,0 +1,87 @@
+Week3.day1
+-> Drop Down
+-> Break 
+-> Breakout
+-> Xpath
+-> Breakout
+-> Advance XPath
+
+
+
+Dropdown:
+1. select tag dropdown
+<select>
+<option>
+
+await page.selectOption()
+label --> visible text
+value --> value attribute
+index --> index of the option (0,1,2,3...)
+
+
+2. Non Select tag dropdown
+<li>
+<ul>
+
+-> normal click-> click()
+await page.locator().click()
+
+
+
+
+
+ClassRoom:
+Use PageFixture
+Url:https://www.telerik.com/contact
+1st dropdown -> index
+2nd dropdown -> value
+3rd dropdown -> label
+
+
+
+
+XPath 
+-> there are around 14 types of xpath
+-> mostly we will use 9 types from that in real time
+
+--> Attribute based xpath
+//tagname[@attributename='attributeValue']
+
+--> Text based xpath
+//tagname[text()='Textvalue']
+
+--> partial attribute based xpath
+//tagname[contains(@attributename,'partial text value')]
+
+--> partial text based xpath 
+//tagname[contains(text(),'partial text value')]
+
+--> collection based xpath
+(//tagname[@attributename='attributeValue'])[index value]
+Note: index value -> should start with  1 and should not go beyond 5.
+if it goes beyond 5 we shall use advanced xpath 
+
+Xpath- Axes (Advanced Xpath)
+--> parent to child xpath 
+(parent relative xpath)/(tagname of the child)
+
+--> grandparent to grancchild xpath
+grandParent relative path//tagname of grandChild
+
+--> child to parent
+child relative xpath/parent::parent tagname
+
+--> grandChild to grandparent
+grandchild relative xpath/ancestor::tagname of grandParent
+
+--> elder sibling to younger sibling 
+(elder sibling relative xpath)/following-sibling::tagname of younger sibling
+
+--> younger sibling to elder sibling
+younger sibling relative xpath /preceding-sibling::tagname of elder sibling
+
+--> Elder cousin to younger cousin
+elder cousin relative xpath /following::tagname of younger cousin
+
+--> younger cousin to Elder cousin 
+younger cousin relative xpath/preceding::tagname of elder cousin
