@@ -1,0 +1,52 @@
+Agenda
+-> Alert
+-> Break
+-> Breakout
+-> Frame
+-> Breakout
+-> Window handling
+
+ClassRoom:
+https://www.leafground.com/alert.xhtml
+ with -page.no
+alert -> accept
+confirm -> cancle
+promot -> accept with input
+
+
+Frame:
+iframe-> in-line Frame
+* in Dom //iframe
+* inspect the page  view frame source
+
+-> Html inside another Html
+DocType
+<html>
+<head></head>
+<body>
+
+<iframe src="abc.html">
+document of abc.html
+<html>
+<head></head>
+<body></body> 
+</html>
+</iframe>
+
+</body>
+</html>
+
+
+Iframe :
+Based on index
+FrameObject
+FrameLocator
+
+https://www.leafground.com/frame.xhtml
+handle the nested  -> FrameLocator
+click on the button
+print text -> .innerText()
+
+
+
+Window Handling:
