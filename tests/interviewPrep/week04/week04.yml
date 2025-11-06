@@ -1,0 +1,75 @@
+1. how do you handle alrets, confirm, and prompts in playwright ?
+      page.on('dialog',dialog=>{
+        if(dialog.type() === 'alert'){
+              dialog.accept();
+          }
+          else if(dialog.type() === 'confirm'){
+              //dialog.accept();
+              alertdialogType.dismiss();
+          }
+          else{
+              dialog.accept("Nandhini")
+              //dialog.dismiss();
+          }
+      })
+
+2. what is page.on('dialog')and how do you use it?
+      => its a event listener that is embedded on the page and wait  and listen for a particular  event  in the 
+      whole code execution ,when it finds event it is waiting  for it trigger the  action  we have coded for
+
+3. how do you test alert confirmation logic in playwright
+      const  text = await page.locator("#result ").textContent()
+      expect(text).toContains("OK")
+                            or
+      await expect(page.locator("#result")).toHaveText("OK")
+
+4. how to intract with elements inside the iframe
+      const frmae = await page.framelocator("#iframeResult")
+      frame?.locator
+
+5.what is the difference between page.frame() and page.framelocator?
+      page.frame() 
+        >> can return frame or null value , we have to use optional parameter '?'
+        >> frame is a method that is used  to access  the frame with name  and url provided
+        >> can not be chained with another frame  eg: await page.frame("#iframeResult").frame() -> will not be allowed
+      page.framelocator() 
+        >> will return only frame
+        >> frmaeLocator is simplified  where  we can access  the frame  using CSS  or XPath Locators
+        >> can be chained with another frame  eg: await page.frameLocator("#iframeResult").framelocator() -> will  be allowed
+
+6. how do you handle nested frames?
+      <iframe name= iframe1>
+        <iframe  nme = iframe2>
+          #documnt
+          </iframe>
+       </iframe>
+
+       const frame = page.frameLocator("[name=iframe1]").frmaeLocator("[name=iframe2")
+       frame.locator("#result").click()
+
+7. what method gets all the avaliable frmaes in webpage
+      page.frames() => this method returns all the frmae taht is available in the webpage along with the main frame
+
+8. how can you verify the text of the alert in playwright
+      page.on('dialog',dialog=>{
+        if(dialog.type() === 'alert'){
+              expect(dialog.message()).toContain("This is an alert")
+              dialog.accept();
+          }
+          else if(dialog.type() === 'confirm'){
+              //dialog.accept();
+              alertdialogType.dismiss();
+          }
+          else{
+              dialog.accept("Nandhini")
+              //dialog.dismiss();
+          }
+      })
+
+9. can you use page.once('dialog') instead of page.on()? what is the difference?
+      page.on will listen for the event as much time  the event  occurs
+      oage.once  will lsiten  fro the event  and once  it is triggered  the listener  will complete  the action and  then listener will also be removed
+
+10. what happenes  if you dont  handle  a dialog  in playwright 
+      auto dismiss
+
