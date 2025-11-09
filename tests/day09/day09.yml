@@ -1,0 +1,65 @@
+day09
+-> Window handling
+-> Break
+-> Breakout
+-> File upload and Download
+-> Break
+-> Storage state
+-> Breakout
+
+File Upload
+Automating file uploads through web forms is crucial for testing upload 
+functionalities.
+
+// Setting files on input elements to simulate file selection
+await page.setInputFiles('#upload-selector', 'path/to/file.txt');
+
+setFiles
+// Interacting with file chooser dialogs
+const [fileChooser] = await Promise.all([
+    page.waitForEvent('filechooser'),
+    page.click('#upload-btn')
+]);
+await fileChooser.setFiles('path/to/file.txt');
+
+
+
+
+File Downloads with Playwright
+Automating file downloads ensures the correct handling of files from web applications. This guide covers managing the download process and saving the downloaded files to a specific location using Playwright.
+
+Download Event and suggestedFilename To manage the download process and retrieve the suggested filename, use the download event in combination with the suggestedFilename() method.
+
+const fileDownloadPromise = page.waitForEvent('download');
+await page.getByRole('button', {name:'Download'}).click();
+const fileDownloader = await fileDownloadPromise;
+console.log('Suggested Filename:', download.suggestedFilename());
+In this example, Playwright waits for the download event to be triggered by clicking on the download link. Once the download starts, it logs the suggested filename.
+
+Saving the Downloaded File To save the downloaded file to a specific location, use the download.path() method along with the saveAs() method.
+
+Example
+const path = await download.path(); await download.saveAs('/path/to/save/file'); This example demonstrates how to retrieve the path of the downloaded file and save it to a specified location on your filesystem.
+
+
+
+
+
+
+StorageState -->cookies
+ skip the login-->store the login info
+
+Classroom:
+use storage state for Leaftaps application(url,usename,password,login,crmsfa)
+
+http://leaftaps.com/opentaps/control/main
+DemoSalesManager
+crmsfa
+
+use it in other test -1
+click on Contacts
+enter the account Name 
+
+test-2
+click on create Accounts
+enter the account Name
