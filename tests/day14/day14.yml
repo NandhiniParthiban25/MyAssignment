@@ -1,0 +1,55 @@
+Agenda:
+-> Polymorpsim
+-> Abstraction
+-> Break + Breakout
+-> custom Fixture
+-> Page Object Model
+-> Breakout
+
+Polymorphsim:
+-> many forms
+2 types of Polymorphism 
+1. Method overloading -> complie time Polymorphsim
+2. Method overriding -> Run time Polymorphisn (not use in Playwright, but can be done only with help of inheritance)
+
+Method Overloading :
+Inside the same class we can create multiple method with same methodname ,but 
+different parameters should be passed 
+
+calss Base{
+ElementClick(locator: string):void
+ElementClick(locator: string,forceClick:boolean):void
+
+//implementation
+ElementClick(locator: string,forceClick?:boolean){
+if(forceClick == true){
+console.log("click with force")
+}
+else{
+console.log("click without force")
+}
+}
+}
+
+Method Overriding:
+use With only inheritance
+connect between two different calss with same method signature and parameters only
+implementation can change
+
+export class parent{
+
+phone(){
+console.log(button phone)
+}
+}
+//object -> button phone
+
+class child extendds parent{
+phone(){
+console.log(iphone)
+}
+}
+//pbject child -> iphone
+
+//if we are creating 2 classes in a file 
+// we can use extendds in one class and no need to use export and import
